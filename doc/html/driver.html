@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MIOpenDriver &mdash; MIOpen: AMD&#39;s deep learning library</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="MIOpen: AMD&#39;s deep learning library" href="index.html"/>
+        <link rel="next" title="Kernel Cache" href="cache.html"/>
+        <link rel="prev" title="MIOpen" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MIOpen
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">MIOpen Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">03/30/2018 [ 1.3.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">03/08/2018 [ 1.2.1 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">12/15/2017 [ 1.2.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">09/08/2017 [ 1.1.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">08/27/2017 [ 1.0.2 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">07/26/2017 [ 1.0.1 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#initial-release">06/30/2017 [ 1.0.0 ] Initial release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">MIOpen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-dependencies">Installing the dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-miopen-with-pre-built-packages">Installing MIOpen with pre-built packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-miopen-from-source">Building MIOpen from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#configuring-with-cmake">Configuring with cmake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#for-opencl-run">For OpenCL, run:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#for-hip-run">For HIP, run:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-library">Building the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-driver">Building the driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#running-the-tests">Running the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-documentation">Building the documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#formatting-the-code">Formatting the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-dependencies-manually">Installing the dependencies manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#using-docker">Using docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MIOpenDriver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Kernel Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#clear-the-cache">Clear the cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#disabling-the-cache">Disabling the cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perfdatabase.html">Performance Database Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="perfdatabase.html#miopen-find-enforce-scope">MIOPEN_FIND_ENFORCE_SCOPE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apireference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="handle.html">Handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopenstatus-t">miopenStatus_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopencreate">miopenCreate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopencreatewithstream">miopenCreateWithStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopendestroy">miopenDestroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopensetstream">miopenSetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopengetstream">miopenGetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopengetkerneltime">miopenGetKernelTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopenenableprofiling">miopenEnableProfiling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html">Tensors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopendatatype-t">miopenDataType_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopentensorop-t">miopenTensorOp_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopencreatetensordescriptor">miopenCreateTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenset4dtensordescriptor">miopenSet4dTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenget4dtensordescriptor">miopenGet4dTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopensettensordescriptor">miopenSetTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopengettensordescriptorsize">miopenGetTensorDescriptorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopengettensordescriptor">miopenGetTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopendestroytensordescriptor">miopenDestroyTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenoptensor">miopenOpTensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopensettensor">miopenSetTensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenscaletensor">miopenScaleTensor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activation.html">Activation Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationmode-t">miopenActivationMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopencreateactivationdescriptor">miopenCreateActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopensetactivationdescriptor">miopenSetActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopengetactivationdescriptor">miopenGetActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationforward">miopenActivationForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationbackward">miopenActivationBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopendestroyactivationdescriptor">miopenDestroyActivationDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolutional Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionmode-t">miopenConvolutionMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvfwdalgorithm-t">miopenConvFwdAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvbwdweightsalgorithm-t">miopenConvBwdWeightsAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvbwddataalgorithm-t">miopenConvBwdDataAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvalgoperf-t">miopenConvAlgoPerf_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopencreateconvolutiondescriptor">miopenCreateConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopeninitconvolutiondescriptor">miopenInitConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopengetconvolutiondescriptor">miopenGetConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopengetconvolutionforwardoutputdim">miopenGetConvolutionForwardOutputDim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforwardgetworkspacesize">miopenConvolutionForwardGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionforwardalgorithm">miopenFindConvolutionForwardAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforward">miopenConvolutionForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforwardbias">miopenConvolutionForwardBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionbackwarddataalgorithm">miopenFindConvolutionBackwardDataAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwarddata">miopenConvolutionBackwardData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwarddatagetworkspacesize">miopenConvolutionBackwardDataGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardweightsgetworkspacesize">miopenConvolutionBackwardWeightsGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionbackwardweightsalgorithm">miopenFindConvolutionBackwardWeightsAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardweights">miopenConvolutionBackwardWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardbias">miopenConvolutionBackwardBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopendestroyconvolutiondescriptor">miopenDestroyConvolutionDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rnn.html">Recurrent Neural Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnmode-t">miopenRNNMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnninputmode-t">miopenRNNInputMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnalgo-t">miopenRNNAlgo_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnndirectionmode-t">miopenRNNDirectionMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbiasmode-t">miopenRNNBiasMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnngemmalgomode-t">miopenRNNGEMMalgoMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopencreaternndescriptor">miopenCreateRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnndescriptor">miopenGetRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopendestroyrnndescriptor">miopenDestroyRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnndescriptor">miopenSetRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnworkspacesize">miopenGetRNNWorkspaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnntrainingreservesize">miopenGetRNNTrainingReserveSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnparamssize">miopenGetRNNParamsSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnparamsdescriptor">miopenGetRNNParamsDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnninputtensorsize">miopenGetRNNInputTensorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnhiddentensorsize">miopenGetRNNHiddenTensorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparamsize">miopenGetRNNLayerParamSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbiassize">miopenGetRNNLayerBiasSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparam">miopenGetRNNLayerParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbias">miopenGetRNNLayerBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnnlayerparam">miopenSetRNNLayerParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnnlayerbias">miopenSetRNNLayerBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparamoffset">miopenGetRNNLayerParamOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbiasoffset">miopenGetRNNLayerBiasOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnforwardtraining">miopenRNNForwardTraining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbackwarddata">miopenRNNBackwardData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbackwardweights">miopenRNNBackwardWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnforwardinference">miopenRNNForwardInference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batchnorm.html">Batch Normalization Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormmode-t">miopenBatchNormMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenderivebntensordescriptor">miopenDeriveBNTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationforwardtraining">miopenBatchNormalizationForwardTraining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationforwardinference">miopenBatchNormalizationForwardInference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationbackward">miopenBatchNormalizationBackward</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lrn.html">Local Response Normalization Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnmode-t">miopenLRNMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopencreatelrndescriptor">miopenCreateLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopensetlrndescriptor">miopenSetLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopengetlrndescriptor">miopenGetLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrngetworkspacesize">miopenLRNGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnforward">miopenLRNForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnbackward">miopenLRNBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopendestroylrndescriptor">miopenDestroyLRNDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pooling.html">Pooling Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingmode-t">miopenPoolingMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopencreatepoolingdescriptor">miopenCreatePoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenset2dpoolingdescriptor">miopenSet2dPoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenget2dpoolingdescriptor">miopenGet2dPoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopengetpoolingforwardoutputdim">miopenGetPoolingForwardOutputDim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolinggetworkspacesize">miopenPoolingGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingforward">miopenPoolingForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingbackward">miopenPoolingBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopendestroypoolingdescriptor">miopenDestroyPoolingDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="softmax.html">Softmax Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="softmax.html#miopensoftmaxforward">miopenSoftmaxForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="softmax.html#miopensoftmaxbackward">miopenSoftmaxBackward</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIOpen</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MIOpenDriver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/driver.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="miopendriver">
+<span id="miopendriver"></span><h1>MIOpenDriver<a class="headerlink" href="#miopendriver" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">MIOpenDriver</span></code> enables the user to test the functionality of any particular
+layer in MIOpen in both the forward and backward direction.
+MIOpenDriver can be build by typing:</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">MIOpenDriver</span></code> from the <code class="docutils literal notranslate"><span class="pre">build</span></code> directory.</p>
+<p>All the supported layers in MIOpen can be found by the supported <code class="docutils literal notranslate"><span class="pre">base_args</span></code> here:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">--help</span></code></p>
+<p>To execute from the build directory:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">*base_arg*</span> <span class="pre">*layer_specific_args*</span></code></p>
+<p>Or to execute the default configuration simpily run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">*base_arg*</span></code></p>
+<p>MIOpenDriver example usages:</p>
+<ul class="simple">
+<li>Convolution with search on:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">conv</span> <span class="pre">-W</span> <span class="pre">32</span> <span class="pre">-H</span> <span class="pre">32</span> <span class="pre">-c</span> <span class="pre">3</span> <span class="pre">-k</span> <span class="pre">32</span> <span class="pre">-x</span> <span class="pre">5</span> <span class="pre">-y</span> <span class="pre">5</span> <span class="pre">-p</span> <span class="pre">2</span> <span class="pre">-q</span> <span class="pre">2</span></code></p>
+<ul class="simple">
+<li>Forward convolution with search off:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">conv</span> <span class="pre">-W</span> <span class="pre">32</span> <span class="pre">-H</span> <span class="pre">32</span> <span class="pre">-c</span> <span class="pre">3</span> <span class="pre">-k</span> <span class="pre">32</span> <span class="pre">-x</span> <span class="pre">5</span> <span class="pre">-y</span> <span class="pre">5</span> <span class="pre">-p</span> <span class="pre">2</span> <span class="pre">-q</span> <span class="pre">2</span> <span class="pre">-s</span> <span class="pre">0</span> <span class="pre">-F</span> <span class="pre">1</span></code></p>
+<ul class="simple">
+<li>Pooling with default parameters:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">pool</span></code></p>
+<ul class="simple">
+<li>LRN with default parameters and timing on:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">lrn</span> <span class="pre">-t</span> <span class="pre">1</span></code></p>
+<ul class="simple">
+<li>Batch normalization with spatial fwd train, saving mean and variance tensors:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">bnorm</span> <span class="pre">-F</span> <span class="pre">1</span> <span class="pre">-n</span> <span class="pre">32</span> <span class="pre">-c</span> <span class="pre">512</span> <span class="pre">-H</span> <span class="pre">16</span> <span class="pre">-W</span> <span class="pre">16</span> <span class="pre">-m</span> <span class="pre">1</span> <span class="pre">-s</span> <span class="pre">1</span></code></p>
+<ul class="simple">
+<li>RNN with forward and backwards pass, no bias, bi-directional and LSTM mode</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">rnn</span> <span class="pre">-n</span> <span class="pre">4,4,4,3,3,3,2,2,2,1</span> <span class="pre">-k</span> <span class="pre">10</span> <span class="pre">-H</span> <span class="pre">512</span> <span class="pre">-W</span> <span class="pre">1024</span> <span class="pre">-l</span> <span class="pre">3</span> <span class="pre">-F</span> <span class="pre">0</span> <span class="pre">-b</span> <span class="pre">0</span> <span class="pre">-r</span> <span class="pre">1</span> <span class="pre">-m</span> <span class="pre">lstm</span></code></p>
+<ul class="simple">
+<li>Printout layer specific input arguments:</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">*base_arg*</span> <span class="pre">-?</span></code> <strong>OR</strong>  <code class="docutils literal notranslate"><span class="pre">./bin/MIOpenDriver</span> <span class="pre">*base_arg*</span> <span class="pre">-h</span> <span class="pre">(--help)</span></code></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cache.html" class="btn btn-neutral float-right" title="Kernel Cache" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="MIOpen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Advanced Micro Devices, Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

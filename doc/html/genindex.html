@@ -1,0 +1,708 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; MIOpen: AMD&#39;s deep learning library</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="#"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="MIOpen: AMD&#39;s deep learning library" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MIOpen
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">MIOpen Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">03/30/2018 [ 1.3.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">03/08/2018 [ 1.2.1 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">12/15/2017 [ 1.2.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">09/08/2017 [ 1.1.0 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">08/27/2017 [ 1.0.2 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#">07/26/2017 [ 1.0.1 ]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releasenotes.html#initial-release">06/30/2017 [ 1.0.0 ] Initial release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">MIOpen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-dependencies">Installing the dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-miopen-with-pre-built-packages">Installing MIOpen with pre-built packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-miopen-from-source">Building MIOpen from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#configuring-with-cmake">Configuring with cmake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#for-opencl-run">For OpenCL, run:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#for-hip-run">For HIP, run:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-library">Building the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-driver">Building the driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#running-the-tests">Running the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-the-documentation">Building the documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#formatting-the-code">Formatting the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-dependencies-manually">Installing the dependencies manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#using-docker">Using docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">MIOpenDriver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Kernel Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#clear-the-cache">Clear the cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#disabling-the-cache">Disabling the cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perfdatabase.html">Performance Database Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="perfdatabase.html#miopen-find-enforce-scope">MIOPEN_FIND_ENFORCE_SCOPE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apireference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="handle.html">Handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopenstatus-t">miopenStatus_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopencreate">miopenCreate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopencreatewithstream">miopenCreateWithStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopendestroy">miopenDestroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopensetstream">miopenSetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopengetstream">miopenGetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopengetkerneltime">miopenGetKernelTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handle.html#miopenenableprofiling">miopenEnableProfiling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html">Tensors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopendatatype-t">miopenDataType_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopentensorop-t">miopenTensorOp_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopencreatetensordescriptor">miopenCreateTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenset4dtensordescriptor">miopenSet4dTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenget4dtensordescriptor">miopenGet4dTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopensettensordescriptor">miopenSetTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopengettensordescriptorsize">miopenGetTensorDescriptorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopengettensordescriptor">miopenGetTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopendestroytensordescriptor">miopenDestroyTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenoptensor">miopenOpTensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopensettensor">miopenSetTensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#miopenscaletensor">miopenScaleTensor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activation.html">Activation Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationmode-t">miopenActivationMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopencreateactivationdescriptor">miopenCreateActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopensetactivationdescriptor">miopenSetActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopengetactivationdescriptor">miopenGetActivationDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationforward">miopenActivationForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopenactivationbackward">miopenActivationBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html#miopendestroyactivationdescriptor">miopenDestroyActivationDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolutional Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionmode-t">miopenConvolutionMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvfwdalgorithm-t">miopenConvFwdAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvbwdweightsalgorithm-t">miopenConvBwdWeightsAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvbwddataalgorithm-t">miopenConvBwdDataAlgorithm_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvalgoperf-t">miopenConvAlgoPerf_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopencreateconvolutiondescriptor">miopenCreateConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopeninitconvolutiondescriptor">miopenInitConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopengetconvolutiondescriptor">miopenGetConvolutionDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopengetconvolutionforwardoutputdim">miopenGetConvolutionForwardOutputDim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforwardgetworkspacesize">miopenConvolutionForwardGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionforwardalgorithm">miopenFindConvolutionForwardAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforward">miopenConvolutionForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionforwardbias">miopenConvolutionForwardBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionbackwarddataalgorithm">miopenFindConvolutionBackwardDataAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwarddata">miopenConvolutionBackwardData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwarddatagetworkspacesize">miopenConvolutionBackwardDataGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardweightsgetworkspacesize">miopenConvolutionBackwardWeightsGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenfindconvolutionbackwardweightsalgorithm">miopenFindConvolutionBackwardWeightsAlgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardweights">miopenConvolutionBackwardWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopenconvolutionbackwardbias">miopenConvolutionBackwardBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="convolution.html#miopendestroyconvolutiondescriptor">miopenDestroyConvolutionDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rnn.html">Recurrent Neural Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnmode-t">miopenRNNMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnninputmode-t">miopenRNNInputMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnalgo-t">miopenRNNAlgo_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnndirectionmode-t">miopenRNNDirectionMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbiasmode-t">miopenRNNBiasMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnngemmalgomode-t">miopenRNNGEMMalgoMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopencreaternndescriptor">miopenCreateRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnndescriptor">miopenGetRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopendestroyrnndescriptor">miopenDestroyRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnndescriptor">miopenSetRNNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnworkspacesize">miopenGetRNNWorkspaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnntrainingreservesize">miopenGetRNNTrainingReserveSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnparamssize">miopenGetRNNParamsSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnparamsdescriptor">miopenGetRNNParamsDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnninputtensorsize">miopenGetRNNInputTensorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnhiddentensorsize">miopenGetRNNHiddenTensorSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparamsize">miopenGetRNNLayerParamSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbiassize">miopenGetRNNLayerBiasSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparam">miopenGetRNNLayerParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbias">miopenGetRNNLayerBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnnlayerparam">miopenSetRNNLayerParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopensetrnnlayerbias">miopenSetRNNLayerBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerparamoffset">miopenGetRNNLayerParamOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopengetrnnlayerbiasoffset">miopenGetRNNLayerBiasOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnforwardtraining">miopenRNNForwardTraining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbackwarddata">miopenRNNBackwardData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnbackwardweights">miopenRNNBackwardWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rnn.html#miopenrnnforwardinference">miopenRNNForwardInference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batchnorm.html">Batch Normalization Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormmode-t">miopenBatchNormMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenderivebntensordescriptor">miopenDeriveBNTensorDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationforwardtraining">miopenBatchNormalizationForwardTraining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationforwardinference">miopenBatchNormalizationForwardInference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchnorm.html#miopenbatchnormalizationbackward">miopenBatchNormalizationBackward</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lrn.html">Local Response Normalization Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnmode-t">miopenLRNMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopencreatelrndescriptor">miopenCreateLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopensetlrndescriptor">miopenSetLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopengetlrndescriptor">miopenGetLRNDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrngetworkspacesize">miopenLRNGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnforward">miopenLRNForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopenlrnbackward">miopenLRNBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lrn.html#miopendestroylrndescriptor">miopenDestroyLRNDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pooling.html">Pooling Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingmode-t">miopenPoolingMode_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopencreatepoolingdescriptor">miopenCreatePoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenset2dpoolingdescriptor">miopenSet2dPoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenget2dpoolingdescriptor">miopenGet2dPoolingDescriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopengetpoolingforwardoutputdim">miopenGetPoolingForwardOutputDim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolinggetworkspacesize">miopenPoolingGetWorkSpaceSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingforward">miopenPoolingForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopenpoolingbackward">miopenPoolingBackward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pooling.html#miopendestroypoolingdescriptor">miopenDestroyPoolingDescriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="softmax.html">Softmax Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="softmax.html#miopensoftmaxforward">miopenSoftmaxForward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="softmax.html#miopensoftmaxbackward">miopenSoftmaxBackward</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIOpen</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#M"><strong>M</strong></a>
+ 
+</div>
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="activation.html#_CPPv319miopenActivationABS">miopenActivationABS (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv324miopenActivationBackward14miopenHandle_tK28miopenActivationDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenActivationBackward (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv323miopenActivationForward14miopenHandle_tK28miopenActivationDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenActivationForward (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv324miopenActivationLOGISTIC">miopenActivationLOGISTIC (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv322miopenActivationMode_t">miopenActivationMode_t (C++ type)</a>
+</li>
+      <li><a href="activation.html#_CPPv323miopenActivationPATHTRU">miopenActivationPATHTRU (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv321miopenActivationPOWER">miopenActivationPOWER (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv320miopenActivationRELU">miopenActivationRELU (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv324miopenActivationSOFTRELU">miopenActivationSOFTRELU (C++ class)</a>
+</li>
+      <li><a href="activation.html#_CPPv320miopenActivationTANH">miopenActivationTANH (C++ class)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv332miopenBatchNormalizationBackward14miopenHandle_t21miopenBatchNormMode_tPKvPKvPKvPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPKvPvPvdPKvPKv">miopenBatchNormalizationBackward (C++ function)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv340miopenBatchNormalizationForwardInference14miopenHandle_t21miopenBatchNormMode_tPvPvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvPvPvPvd">miopenBatchNormalizationForwardInference (C++ function)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv339miopenBatchNormalizationForwardTraining14miopenHandle_t21miopenBatchNormMode_tPvPvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvPvdPvPvdPvPv">miopenBatchNormalizationForwardTraining (C++ function)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv321miopenBatchNormMode_t">miopenBatchNormMode_t (C++ type)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv321miopenBNPerActivation">miopenBNPerActivation (C++ class)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv315miopenBNSpatial">miopenBNSpatial (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv320miopenConvAlgoPerf_t">miopenConvAlgoPerf_t (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv328miopenConvBwdDataAlgorithm_t">miopenConvBwdDataAlgorithm_t (C++ type)</a>
+</li>
+      <li><a href="convolution.html#_CPPv331miopenConvBwdWeightsAlgorithm_t">miopenConvBwdWeightsAlgorithm_t (C++ type)</a>
+</li>
+      <li><a href="convolution.html#_CPPv324miopenConvFwdAlgorithm_t">miopenConvFwdAlgorithm_t (C++ type)</a>
+</li>
+      <li><a href="convolution.html#_CPPv317miopenConvolution">miopenConvolution (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv329miopenConvolutionBackwardBias14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenConvolutionBackwardBias (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv329miopenConvolutionBackwardData14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_t28miopenConvBwdDataAlgorithm_tPKvK24miopenTensorDescriptor_tPvPv6size_t">miopenConvolutionBackwardData (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv345miopenConvolutionBackwardDataGetWorkSpaceSize14miopenHandle_tK24miopenTensorDescriptor_tK24miopenTensorDescriptor_tK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tP6size_t">miopenConvolutionBackwardDataGetWorkSpaceSize (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv332miopenConvolutionBackwardWeights14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_t31miopenConvBwdWeightsAlgorithm_tPKvK24miopenTensorDescriptor_tPvPv6size_t">miopenConvolutionBackwardWeights (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv348miopenConvolutionBackwardWeightsGetWorkSpaceSize14miopenHandle_tK24miopenTensorDescriptor_tK24miopenTensorDescriptor_tK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tP6size_t">miopenConvolutionBackwardWeightsGetWorkSpaceSize (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv334miopenConvolutionBwdDataAlgoDirect">miopenConvolutionBwdDataAlgoDirect (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv331miopenConvolutionBwdDataAlgoFFT">miopenConvolutionBwdDataAlgoFFT (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv332miopenConvolutionBwdDataAlgoGEMM">miopenConvolutionBwdDataAlgoGEMM (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv336miopenConvolutionBwdDataAlgoWinograd">miopenConvolutionBwdDataAlgoWinograd (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv337miopenConvolutionBwdWeightsAlgoDirect">miopenConvolutionBwdWeightsAlgoDirect (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv335miopenConvolutionBwdWeightsAlgoGEMM">miopenConvolutionBwdWeightsAlgoGEMM (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv324miopenConvolutionForward14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_t24miopenConvFwdAlgorithm_tPKvK24miopenTensorDescriptor_tPvPv6size_t">miopenConvolutionForward (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv328miopenConvolutionForwardBias14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenConvolutionForwardBias (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv340miopenConvolutionForwardGetWorkSpaceSize14miopenHandle_tK24miopenTensorDescriptor_tK24miopenTensorDescriptor_tK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tP6size_t">miopenConvolutionForwardGetWorkSpaceSize (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv330miopenConvolutionFwdAlgoDirect">miopenConvolutionFwdAlgoDirect (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv327miopenConvolutionFwdAlgoFFT">miopenConvolutionFwdAlgoFFT (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv328miopenConvolutionFwdAlgoGEMM">miopenConvolutionFwdAlgoGEMM (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv332miopenConvolutionFwdAlgoWinograd">miopenConvolutionFwdAlgoWinograd (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv323miopenConvolutionMode_t">miopenConvolutionMode_t (C++ type)</a>
+</li>
+      <li><a href="handle.html#_CPPv312miopenCreateP14miopenHandle_t">miopenCreate (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv332miopenCreateActivationDescriptorP28miopenActivationDescriptor_t">miopenCreateActivationDescriptor (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv333miopenCreateConvolutionDescriptorP29miopenConvolutionDescriptor_t">miopenCreateConvolutionDescriptor (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv325miopenCreateLRNDescriptorP21miopenLRNDescriptor_t">miopenCreateLRNDescriptor (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv329miopenCreatePoolingDescriptorP25miopenPoolingDescriptor_t">miopenCreatePoolingDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv325miopenCreateRNNDescriptorP21miopenRNNDescriptor_t">miopenCreateRNNDescriptor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv328miopenCreateTensorDescriptorP24miopenTensorDescriptor_t">miopenCreateTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv322miopenCreateWithStreamP14miopenHandle_t24miopenAcceleratorQueue_t">miopenCreateWithStream (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv316miopenDataType_t">miopenDataType_t (C++ type)</a>
+</li>
+      <li><a href="batchnorm.html#_CPPv330miopenDeriveBNTensorDescriptor24miopenTensorDescriptor_tK24miopenTensorDescriptor_t21miopenBatchNormMode_t">miopenDeriveBNTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv313miopenDestroy14miopenHandle_t">miopenDestroy (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv333miopenDestroyActivationDescriptor28miopenActivationDescriptor_t">miopenDestroyActivationDescriptor (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv334miopenDestroyConvolutionDescriptor29miopenConvolutionDescriptor_t">miopenDestroyConvolutionDescriptor (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv326miopenDestroyLRNDescriptor21miopenLRNDescriptor_t">miopenDestroyLRNDescriptor (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv330miopenDestroyPoolingDescriptor25miopenPoolingDescriptor_t">miopenDestroyPoolingDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv326miopenDestroyRNNDescriptor21miopenRNNDescriptor_t">miopenDestroyRNNDescriptor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv329miopenDestroyTensorDescriptor24miopenTensorDescriptor_t">miopenDestroyTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv321miopenEnableProfiling14miopenHandle_tb">miopenEnableProfiling (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv342miopenFindConvolutionBackwardDataAlgorithm14miopenHandle_tK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tPKvKiPiP20miopenConvAlgoPerf_tPv6size_tb">miopenFindConvolutionBackwardDataAlgorithm (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv345miopenFindConvolutionBackwardWeightsAlgorithm14miopenHandle_tK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tPvKiPiP20miopenConvAlgoPerf_tPv6size_tb">miopenFindConvolutionBackwardWeightsAlgorithm (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv337miopenFindConvolutionForwardAlgorithm14miopenHandle_tK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tPvKiPiP20miopenConvAlgoPerf_tPv6size_tb">miopenFindConvolutionForwardAlgorithm (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv311miopenFloat">miopenFloat (C++ class)</a>
+</li>
+      <li><a href="pooling.html#_CPPv328miopenGet2dPoolingDescriptorK25miopenPoolingDescriptor_tP19miopenPoolingMode_tPiPiPiPiPiPi">miopenGet2dPoolingDescriptor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv327miopenGet4dTensorDescriptor24miopenTensorDescriptor_tP16miopenDataType_tPiPiPiPiPiPiPiPi">miopenGet4dTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv329miopenGetActivationDescriptorK28miopenActivationDescriptor_tP22miopenActivationMode_tPdPdPd">miopenGetActivationDescriptor (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv330miopenGetConvolutionDescriptor29miopenConvolutionDescriptor_tP23miopenConvolutionMode_tPiPiPiPiPiPi">miopenGetConvolutionDescriptor (C++ function)</a>
+</li>
+      <li><a href="convolution.html#_CPPv336miopenGetConvolutionForwardOutputDim29miopenConvolutionDescriptor_tK24miopenTensorDescriptor_tK24miopenTensorDescriptor_tPiPiPiPi">miopenGetConvolutionForwardOutputDim (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv319miopenGetKernelTime14miopenHandle_tPf">miopenGetKernelTime (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv322miopenGetLRNDescriptorK21miopenLRNDescriptor_tP15miopenLRNMode_tPjPdPdPd">miopenGetLRNDescriptor (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv332miopenGetPoolingForwardOutputDimK25miopenPoolingDescriptor_tK24miopenTensorDescriptor_tPiPiPiPi">miopenGetPoolingForwardOutputDim (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv322miopenGetRNNDescriptor21miopenRNNDescriptor_tP15miopenRNNMode_tP15miopenRNNAlgo_tP20miopenRNNInputMode_tP24miopenRNNDirectionMode_tP19miopenRNNBiasMode_tPiPi">miopenGetRNNDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv328miopenGetRNNHiddenTensorSize14miopenHandle_t21miopenRNNDescriptor_tKiP24miopenTensorDescriptor_tP6size_t">miopenGetRNNHiddenTensorSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv327miopenGetRNNInputTensorSize14miopenHandle_t21miopenRNNDescriptor_tKiP24miopenTensorDescriptor_tP6size_t">miopenGetRNNInputTensorSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv321miopenGetRNNLayerBias14miopenHandle_t21miopenRNNDescriptor_tKi24miopenTensorDescriptor_t24miopenTensorDescriptor_tPKvKi24miopenTensorDescriptor_tPv">miopenGetRNNLayerBias (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv327miopenGetRNNLayerBiasOffset21miopenRNNDescriptor_tKi24miopenTensorDescriptor_tKi24miopenTensorDescriptor_tP6size_t">miopenGetRNNLayerBiasOffset (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv325miopenGetRNNLayerBiasSize14miopenHandle_t21miopenRNNDescriptor_tKiKiP6size_t">miopenGetRNNLayerBiasSize (C++ function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="rnn.html#_CPPv322miopenGetRNNLayerParam14miopenHandle_t21miopenRNNDescriptor_tKi24miopenTensorDescriptor_t24miopenTensorDescriptor_tPKvKi24miopenTensorDescriptor_tPv">miopenGetRNNLayerParam (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv328miopenGetRNNLayerParamOffset21miopenRNNDescriptor_tKi24miopenTensorDescriptor_tKi24miopenTensorDescriptor_tP6size_t">miopenGetRNNLayerParamOffset (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv326miopenGetRNNLayerParamSize14miopenHandle_t21miopenRNNDescriptor_tKi24miopenTensorDescriptor_tKiP6size_t">miopenGetRNNLayerParamSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv328miopenGetRNNParamsDescriptor14miopenHandle_t21miopenRNNDescriptor_t24miopenTensorDescriptor_t24miopenTensorDescriptor_t16miopenDataType_t">miopenGetRNNParamsDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv322miopenGetRNNParamsSize14miopenHandle_t21miopenRNNDescriptor_t24miopenTensorDescriptor_tP6size_t16miopenDataType_t">miopenGetRNNParamsSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv331miopenGetRNNTrainingReserveSize14miopenHandle_t21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tP6size_t">miopenGetRNNTrainingReserveSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv325miopenGetRNNWorkspaceSize14miopenHandle_tK21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tP6size_t">miopenGetRNNWorkspaceSize (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv315miopenGetStream14miopenHandle_tP24miopenAcceleratorQueue_t">miopenGetStream (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv325miopenGetTensorDescriptor24miopenTensorDescriptor_tP16miopenDataType_tPiPi">miopenGetTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv329miopenGetTensorDescriptorSize24miopenTensorDescriptor_tPi">miopenGetTensorDescriptorSize (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv39miopenGRU">miopenGRU (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv310miopenHalf">miopenHalf (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv331miopenInitConvolutionDescriptor29miopenConvolutionDescriptor_t23miopenConvolutionMode_tiiiiii">miopenInitConvolutionDescriptor (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv317miopenLRNBackward14miopenHandle_tK21miopenLRNDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPvPKv">miopenLRNBackward (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv321miopenLRNCrossChannel">miopenLRNCrossChannel (C++ class)</a>
+</li>
+      <li><a href="lrn.html#_CPPv316miopenLRNForward14miopenHandle_tK21miopenLRNDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPvbPv">miopenLRNForward (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv325miopenLRNGetWorkSpaceSizeK24miopenTensorDescriptor_tP6size_t">miopenLRNGetWorkSpaceSize (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv315miopenLRNMode_t">miopenLRNMode_t (C++ type)</a>
+</li>
+      <li><a href="lrn.html#_CPPv322miopenLRNWithinChannel">miopenLRNWithinChannel (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv310miopenLSTM">miopenLSTM (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv314miopenOpTensor14miopenHandle_t16miopenTensorOp_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenOpTensor (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv320miopenPoolingAverage">miopenPoolingAverage (C++ class)</a>
+</li>
+      <li><a href="pooling.html#_CPPv321miopenPoolingBackward14miopenHandle_tK25miopenPoolingDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPvPKv">miopenPoolingBackward (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv320miopenPoolingForward14miopenHandle_tK25miopenPoolingDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPvbPv6size_t">miopenPoolingForward (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv329miopenPoolingGetWorkSpaceSizeK24miopenTensorDescriptor_tP6size_t">miopenPoolingGetWorkSpaceSize (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv316miopenPoolingMax">miopenPoolingMax (C++ class)</a>
+</li>
+      <li><a href="pooling.html#_CPPv319miopenPoolingMode_t">miopenPoolingMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv315miopenRNNAlgo_t">miopenRNNAlgo_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv317miopenRNNAlgoGEMM">miopenRNNAlgoGEMM (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv321miopenRNNBackwardData14miopenHandle_tK21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tPKvPK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvPv6size_tPv6size_t">miopenRNNBackwardData (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv324miopenRNNBackwardWeights14miopenHandle_tK21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPvPv6size_tPKv6size_t">miopenRNNBackwardWeights (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv319miopenRNNBiasMode_t">miopenRNNBiasMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv320miopenRNNbidirection">miopenRNNbidirection (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv316miopenRNNdefault">miopenRNNdefault (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv324miopenRNNDirectionMode_t">miopenRNNDirectionMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv325miopenRNNForwardInference14miopenHandle_t21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvPv6size_t">miopenRNNForwardInference (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv324miopenRNNForwardTraining14miopenHandle_tK21miopenRNNDescriptor_tKiPK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvK24miopenTensorDescriptor_tPvPv6size_tPv6size_t">miopenRNNForwardTraining (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv323miopenRNNGEMMalgoMode_t">miopenRNNGEMMalgoMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv320miopenRNNInputMode_t">miopenRNNInputMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv315miopenRNNlinear">miopenRNNlinear (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv315miopenRNNMode_t">miopenRNNMode_t (C++ type)</a>
+</li>
+      <li><a href="rnn.html#_CPPv315miopenRNNNoBias">miopenRNNNoBias (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv313miopenRNNRELU">miopenRNNRELU (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv313miopenRNNskip">miopenRNNskip (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv313miopenRNNTANH">miopenRNNTANH (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv321miopenRNNunidirection">miopenRNNunidirection (C++ class)</a>
+</li>
+      <li><a href="rnn.html#_CPPv317miopenRNNwithBias">miopenRNNwithBias (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv317miopenScaleTensor14miopenHandle_tK24miopenTensorDescriptor_tPvPKv">miopenScaleTensor (C++ function)</a>
+</li>
+      <li><a href="pooling.html#_CPPv328miopenSet2dPoolingDescriptor25miopenPoolingDescriptor_t19miopenPoolingMode_tiiiiii">miopenSet2dPoolingDescriptor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv327miopenSet4dTensorDescriptor24miopenTensorDescriptor_t16miopenDataType_tiiii">miopenSet4dTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="activation.html#_CPPv329miopenSetActivationDescriptorK28miopenActivationDescriptor_t22miopenActivationMode_tddd">miopenSetActivationDescriptor (C++ function)</a>
+</li>
+      <li><a href="lrn.html#_CPPv322miopenSetLRNDescriptorK21miopenLRNDescriptor_t15miopenLRNMode_tjddd">miopenSetLRNDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv322miopenSetRNNDescriptor21miopenRNNDescriptor_tKiKi20miopenRNNInputMode_t24miopenRNNDirectionMode_t15miopenRNNMode_t19miopenRNNBiasMode_t15miopenRNNAlgo_t16miopenDataType_t">miopenSetRNNDescriptor (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv321miopenSetRNNLayerBias14miopenHandle_t21miopenRNNDescriptor_tKi24miopenTensorDescriptor_t24miopenTensorDescriptor_tPvKi24miopenTensorDescriptor_tPKv">miopenSetRNNLayerBias (C++ function)</a>
+</li>
+      <li><a href="rnn.html#_CPPv322miopenSetRNNLayerParam14miopenHandle_t21miopenRNNDescriptor_tKi24miopenTensorDescriptor_t24miopenTensorDescriptor_tPvKi24miopenTensorDescriptor_tPKv">miopenSetRNNLayerParam (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv315miopenSetStream14miopenHandle_t24miopenAcceleratorQueue_t">miopenSetStream (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv315miopenSetTensor14miopenHandle_tK24miopenTensorDescriptor_tPvPKv">miopenSetTensor (C++ function)</a>
+</li>
+      <li><a href="tensor.html#_CPPv325miopenSetTensorDescriptor24miopenTensorDescriptor_t16miopenDataType_tiPiPi">miopenSetTensorDescriptor (C++ function)</a>
+</li>
+      <li><a href="softmax.html#_CPPv321miopenSoftmaxBackward14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenSoftmaxBackward (C++ function)</a>
+</li>
+      <li><a href="softmax.html#_CPPv320miopenSoftmaxForward14miopenHandle_tPKvK24miopenTensorDescriptor_tPKvPKvK24miopenTensorDescriptor_tPv">miopenSoftmaxForward (C++ function)</a>
+</li>
+      <li><a href="handle.html#_CPPv314miopenStatus_t">miopenStatus_t (C++ type)</a>
+</li>
+      <li><a href="handle.html#_CPPv323miopenStatusAllocFailed">miopenStatusAllocFailed (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv319miopenStatusBadParm">miopenStatusBadParm (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv325miopenStatusInternalError">miopenStatusInternalError (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv324miopenStatusInvalidValue">miopenStatusInvalidValue (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv326miopenStatusNotImplemented">miopenStatusNotImplemented (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv326miopenStatusNotInitialized">miopenStatusNotInitialized (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv319miopenStatusSuccess">miopenStatusSuccess (C++ class)</a>
+</li>
+      <li><a href="handle.html#_CPPv324miopenStatusUnknownError">miopenStatusUnknownError (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv316miopenTensorOp_t">miopenTensorOp_t (C++ type)</a>
+</li>
+      <li><a href="tensor.html#_CPPv317miopenTensorOpAdd">miopenTensorOpAdd (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv317miopenTensorOpMax">miopenTensorOpMax (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv317miopenTensorOpMin">miopenTensorOpMin (C++ class)</a>
+</li>
+      <li><a href="tensor.html#_CPPv317miopenTensorOpMul">miopenTensorOpMul (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv315miopenTranspose">miopenTranspose (C++ class)</a>
+</li>
+      <li><a href="convolution.html#_CPPv330miopenTransposeBwdDataAlgoGEMM">miopenTransposeBwdDataAlgoGEMM (C++ class)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Advanced Micro Devices, Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
