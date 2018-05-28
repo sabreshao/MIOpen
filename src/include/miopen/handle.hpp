@@ -143,6 +143,9 @@ struct Handle : miopenHandle
 
     std::unique_ptr<HandleImpl> impl;
     std::unordered_map<GemmKey, std::unique_ptr<GemmGeometry>, SimpleHash> geo_map;
+    std::unordered_map<std::string, int> fwd_map;
+    std::unordered_map<std::string, int> bwdData_map;
+    std::unordered_map<std::string, int> bwdWeights_map;
 };
 } // namespace miopen
 MIOPEN_DEFINE_OBJECT(miopenHandle, miopen::Handle);
