@@ -323,8 +323,23 @@ size_t ConvolutionDescriptor::ForwardGetWorkSpaceSize(Handle& handle,
                                                       const TensorDescriptor& yDesc) const
 {
     MIOPEN_LOG_I2("");
+    mlo_construct_direct2D find_params(1); // forward
+    size_t wsize = 0;
+    find_params.setOutputDescFromMLDesc(yDesc);
+    find_params.setInputDescFromMLDesc(xDesc);
+    find_params.setWeightDescFromMLDesc(wDesc);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+
+    std::unordered_map<std::string, size_t>::iterator iter = handle.fwd_size_map.find(find_config);
+    if (iter != handle.fwd_size_map.end())
+    {
+        return iter->second;
+    }
+
+
     if(mode == miopenTranspose)
-        return BackwardDataGetWorkSpaceSizeGEMM(handle, wDesc, xDesc);
+        wsize = BackwardDataGetWorkSpaceSizeGEMM(handle, wDesc, xDesc);
     else
     {
         int wei_h, wei_w;
@@ -336,33 +351,35 @@ size_t ConvolutionDescriptor::ForwardGetWorkSpaceSize(Handle& handle,
             ForwardBackwardDataGetWorkSpaceSizeDirect(handle, xDesc, yDesc, wDesc, 1);
 
         if(dilation_w > 1 || dilation_h > 1)
-            return std::max(ForwardGetWorkSpaceSizeGEMM(handle, wDesc, yDesc), direct_workspace);
+            wsize = std::max(ForwardGetWorkSpaceSizeGEMM(handle, wDesc, yDesc), direct_workspace);
 
         // Use transpose path if input ht and width <= 14 for 1x1_stride=1 convolutions OR for
         // 1x1_stride=2
-        if((wei_h == 1 && wei_w == 1 && pad_h == 0 && pad_w == 0 && dilation_h == 1 &&
+        else if((wei_h == 1 && wei_w == 1 && pad_h == 0 && pad_w == 0 && dilation_h == 1 &&
             dilation_w == 1) &&
            ((in_h <= 14 && in_w <= 14 && u == 1 && v == 1) || (u == 2 && v == 2)))
         {
-            return std::max(ForwardGetWorkSpaceSizeGEMMTranspose(xDesc, yDesc), direct_workspace);
+            wsize = std::max(ForwardGetWorkSpaceSizeGEMMTranspose(xDesc, yDesc), direct_workspace);
         }
 
         // Check if Winograd is available
         // If Winograd is present, there is no advantage in letting
         // the user run another algorithm as those both slower and
         // use more workspace.
-        if(IsWinograd3x3Supported(handle, true, wDesc, xDesc))
+        else if(IsWinograd3x3Supported(handle, true, wDesc, xDesc))
         {
-            return 0;
+            wsize = 0;
         }
         else
         {
             size_t workspace_size_gemm = ForwardGetWorkSpaceSizeGEMM(handle, wDesc, yDesc);
             size_t workspace_size_fft  = ForwardGetWorkSpaceSizeFFT(wDesc, xDesc, yDesc);
 
-            return std::max(std::max(workspace_size_fft, workspace_size_gemm), direct_workspace);
+            wsize = std::max(std::max(workspace_size_fft, workspace_size_gemm), direct_workspace);
         }
     }
+    handle.fwd_size_map.insert(std::unordered_map<std::string, size_t>::value_type(find_config, wsize));
+    return wsize;
 }
 
 size_t ConvolutionDescriptor::BackwardDataGetWorkSpaceSize(Handle& handle,
@@ -371,8 +388,22 @@ size_t ConvolutionDescriptor::BackwardDataGetWorkSpaceSize(Handle& handle,
                                                            const TensorDescriptor& dxDesc) const
 {
     MIOPEN_LOG_I2("");
+    size_t wsize = 0;
+    mlo_construct_direct2D find_params(0); // forward
+    find_params.setOutputDescFromMLDesc(dyDesc);
+    find_params.setInputDescFromMLDesc(dxDesc);
+    find_params.setWeightDescFromMLDesc(wDesc);
+    find_params.setConvDescr(pad_h, pad_w, u, v, dilation_h, dilation_w);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+    std::unordered_map<std::string, size_t>::iterator iter = handle.bwdData_size_map.find(find_config);
+    if (iter != handle.bwdData_size_map.end())
+    {
+	    return iter->second;
+    }
+
     if(mode == miopenTranspose)
-        return ForwardGetWorkSpaceSizeGEMM(handle, wDesc, dxDesc);
+        wsize = ForwardGetWorkSpaceSizeGEMM(handle, wDesc, dxDesc);
     else
     {
         int wei_h, wei_w;
@@ -382,31 +413,33 @@ size_t ConvolutionDescriptor::BackwardDataGetWorkSpaceSize(Handle& handle,
             ForwardBackwardDataGetWorkSpaceSizeDirect(handle, dxDesc, dyDesc, wDesc, 0);
 
         if(dilation_w > 1 || dilation_h > 1)
-            return std::max(BackwardDataGetWorkSpaceSizeGEMM(handle, wDesc, dyDesc),
+            wsize = std::max(BackwardDataGetWorkSpaceSizeGEMM(handle, wDesc, dyDesc),
                             direct_workspace);
 
-        if(wei_h == 1 && wei_w == 1 && pad_h == 0 && pad_w == 0 && (u == 2 && v == 2) &&
+        else if(wei_h == 1 && wei_w == 1 && pad_h == 0 && pad_w == 0 && (u == 2 && v == 2) &&
            dilation_w == 1 && dilation_h == 1)
         {
             size_t gemm_trans = BackwardDataGetWorkSpaceSizeGEMMTranspose(dyDesc, dxDesc);
-            return std::max(gemm_trans, direct_workspace);
+            wsize = std::max(gemm_trans, direct_workspace);
         }
         // Check if Winograd is available
         // If Winograd is present, there is no advantage in letting
         // the user run another algorithm as those both slower and
         // use more workspace.
-        if(IsWinograd3x3Supported(handle, false, wDesc, dyDesc))
+        else if(IsWinograd3x3Supported(handle, false, wDesc, dyDesc))
         {
-            return 0;
+            wsize = 0;
         }
         else
         {
             size_t workspace_size_gemm = BackwardDataGetWorkSpaceSizeGEMM(handle, wDesc, dyDesc);
             size_t workspace_size_fft  = BackwardGetWorkSpaceSizeFFT(wDesc, dyDesc, dxDesc);
 
-            return std::max(std::max(workspace_size_fft, workspace_size_gemm), direct_workspace);
+            wsize = std::max(std::max(workspace_size_fft, workspace_size_gemm), direct_workspace);
         }
     }
+    handle.bwdData_size_map.insert(std::unordered_map<std::string, size_t>::value_type(find_config, wsize));
+    return wsize;
 }
 
 // weights_n = output_c
@@ -659,11 +692,27 @@ size_t ConvolutionDescriptor::ConvolutionBackwardWeightsGetWorkSpaceSize(
     const TensorDescriptor& dwDesc) const
 {
     MIOPEN_LOG_I2("");
-    if(mode == miopenTranspose)
-        return BackwardWeightsGetWorkSpaceSizeGEMM(handle, xDesc, dwDesc);
+    size_t wsize = 0;
+    mlo_construct_direct2D find_params(0); // forward
+    find_params.setOutputDescFromMLDesc(dyDesc);
+    find_params.setInputDescFromMLDesc(xDesc);
+    find_params.setWeightDescFromMLDesc(dwDesc);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+    std::unordered_map<std::string, size_t>::iterator iter = handle.bwdWeights_size_map.find(find_config);
+    if (iter != handle.bwdWeights_size_map.end())
+    {
+        return iter->second;
+    }
 
-    return std::max(BackwardWeightsGetWorkSpaceSizeDirect(handle, dyDesc, xDesc, dwDesc),
+    if(mode == miopenTranspose)
+        wsize = BackwardWeightsGetWorkSpaceSizeGEMM(handle, xDesc, dwDesc);
+    else
+        wsize = std::max(BackwardWeightsGetWorkSpaceSizeDirect(handle, dyDesc, xDesc, dwDesc),
                     BackwardWeightsGetWorkSpaceSizeGEMM(handle, dyDesc, dwDesc));
+
+    handle.bwdWeights_size_map.insert(std::unordered_map<std::string, size_t>::value_type(find_config, wsize));
+    return wsize;
 }
 
 std::ostream& operator<<(std::ostream& stream, const ConvolutionDescriptor& c)

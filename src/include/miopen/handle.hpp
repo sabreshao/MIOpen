@@ -150,6 +150,12 @@ struct Handle : miopenHandle
 #if MIOPEN_USE_MIOPENGEMM
     std::unordered_map<GemmKey, std::unique_ptr<GemmGeometry>, SimpleHash> geo_map;
 #endif
+    std::unordered_map<std::string, int> fwd_map;
+    std::unordered_map<std::string, int> bwdData_map;
+    std::unordered_map<std::string, int> bwdWeights_map;
+    std::unordered_map<std::string, size_t> fwd_size_map;
+    std::unordered_map<std::string, size_t> bwdData_size_map;
+    std::unordered_map<std::string, size_t> bwdWeights_size_map;
 };
 } // namespace miopen
 MIOPEN_DEFINE_OBJECT(miopenHandle, miopen::Handle);

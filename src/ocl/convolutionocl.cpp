@@ -315,6 +315,27 @@ void ConvolutionDescriptor::FindConvFwdAlgorithm(Handle& handle,
 
     AutoEnableProfiling enableProfiling{handle};
 
+    mlo_construct_direct2D find_params(1); // forward
+    find_params.setOutputDescFromMLDesc(yDesc);
+    find_params.setInputDescFromMLDesc(xDesc);
+    find_params.setWeightDescFromMLDesc(wDesc);
+    find_params.setConvDescr(pad_h, pad_w, u, v, dilation_h, dilation_w);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+
+    std::unordered_map<std::string, int>::iterator iter = handle.fwd_map.find(find_config);
+    if (iter != handle.fwd_map.end())
+    {
+        if (requestAlgoCount == 1)
+        {
+            perfResults[0].fwd_algo =
+                static_cast<miopenConvFwdAlgorithm_t>(iter->second);
+            *returnedAlgoCount = 1;
+            return;
+        }
+    }
+
+
     // create a dummy buffer for use as output for the kernel calls
     // because kernels are called purely for timing purposes
     auto tmp_y = handle.Create(yDesc.GetElementSize() * GetTypeSize(yDesc.GetType()));
@@ -636,6 +657,8 @@ void ConvolutionDescriptor::FindConvFwdAlgorithm(Handle& handle,
         perfResults[i].time   = perf_db[i].time;
         perfResults[i].memory = perf_db[i].workspace;
     }
+
+    handle.fwd_map.insert(std::unordered_map<std::string, int>::value_type(find_config, FwdAlgoResolver(perf_db[0].name)));
 }
 
 void ConvolutionDescriptor::ConvolutionForward(Handle& handle,
@@ -1120,6 +1143,27 @@ void ConvolutionDescriptor::FindConvBwdDataAlgorithm(Handle& handle,
     if(requestAlgoCount < 1)
         MIOPEN_THROW(miopenStatusBadParm, "requestAlgoCount cannot be < 1");
 
+
+    mlo_construct_direct2D find_params(0); // forward
+    find_params.setOutputDescFromMLDesc(dyDesc);
+    find_params.setInputDescFromMLDesc(dxDesc);
+    find_params.setWeightDescFromMLDesc(wDesc);
+    find_params.setConvDescr(pad_h, pad_w, u, v, dilation_h, dilation_w);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+
+    std::unordered_map<std::string, int>::iterator iter = handle.bwdData_map.find(find_config);
+    if (iter != handle.bwdData_map.end())
+    {
+	    if (requestAlgoCount == 1)
+	    {
+		    perfResults[0].bwd_data_algo =
+			    static_cast<miopenConvBwdDataAlgorithm_t>(iter->second);
+		    *returnedAlgoCount = 1;
+		    return;
+	    }
+    }
+
     // create a dummy buffer for use as output for the kernel calls
     // because kernels are called purely for timing purposes
     auto tmp_dx = handle.Create(dxDesc.GetElementSize() * GetTypeSize(dxDesc.GetType()));
@@ -1482,6 +1526,8 @@ void ConvolutionDescriptor::FindConvBwdDataAlgorithm(Handle& handle,
         perfResults[i].time   = perf_db[i].time;
         perfResults[i].memory = perf_db[i].workspace;
     }
+
+    handle.bwdData_map.insert(std::unordered_map<std::string, int>::value_type(find_config, BwdDataAlgoResolver(perf_db[0].name)));
 }
 
 // BackwardDataAlgorithm()
@@ -2031,6 +2077,26 @@ void ConvolutionDescriptor::FindConvBwdWeightsAlgorithm(Handle& handle,
     if(requestAlgoCount < 1)
         MIOPEN_THROW(miopenStatusBadParm, "requestAlgoCount cannot be < 1");
 
+    mlo_construct_direct2D find_params(0); // forward
+    find_params.setOutputDescFromMLDesc(dyDesc);
+    find_params.setInputDescFromMLDesc(xDesc);
+    find_params.setWeightDescFromMLDesc(dwDesc);
+    find_params.setConvDescr(pad_h, pad_w, u, v, dilation_h, dilation_w);
+    std::string find_config;
+    find_params.mloBuildConf_Key(find_config);
+
+    std::unordered_map<std::string, int>::iterator iter = handle.bwdWeights_map.find(find_config);
+    if (iter != handle.bwdWeights_map.end())
+    {
+	    if (requestAlgoCount == 1)
+	    {
+		    perfResults[0].bwd_weights_algo =
+			    static_cast<miopenConvBwdWeightsAlgorithm_t>(iter->second);
+		    *returnedAlgoCount = 1;
+		    return;
+	    }
+    }
+
     // create a dummy buffer for use as output for the kernel calls
     // because kernels are called purely for timing purposes
     auto tmp_dw = handle.Create(dwDesc.GetElementSize() * GetTypeSize(dwDesc.GetType()));
@@ -2237,6 +2303,8 @@ void ConvolutionDescriptor::FindConvBwdWeightsAlgorithm(Handle& handle,
         perfResults[i].time   = perf_db[i].time;
         perfResults[i].memory = perf_db[i].workspace;
     }
+
+    handle.bwdWeights_map.insert(std::unordered_map<std::string, int>::value_type(find_config, BwdWeightsAlgoResolver(perf_db[0].name)));
 }
 
 // BackwardWeightsAlgorithm()
